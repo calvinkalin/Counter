@@ -19,19 +19,49 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sM-gz-3oR">
                                 <rect key="frame" x="159" y="346" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXm-1q-LJy">
-                                <rect key="frame" x="131" y="563" width="131" height="35"/>
+                                <rect key="frame" x="246" y="557" width="131" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <fontDescription key="titleFontDescription" name="Impact" family="Impact" pointSize="40"/>
+                                </buttonConfiguration>
                                 <connections>
-                                    <action selector="buttonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K1S-f7-k2l"/>
+                                    <action selector="buttonPlusDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DcK-uW-aUH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJm-VC-YAZ">
+                                <rect key="frame" x="172" y="558" width="54" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.counterclockwise.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="buttonResetDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2b9-da-4Gz"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPp-Yn-j2J">
+                                <rect key="frame" x="79" y="618" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sP4-lr-xbu">
+                                <rect key="frame" x="16" y="556" width="130" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.22380536130000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <buttonConfiguration key="configuration" style="plain" title="-">
+                                    <fontDescription key="titleFontDescription" name="Impact" family="Impact" pointSize="40"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonMinusDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GO3-FI-xCM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -39,8 +69,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="changesHistory" destination="aPp-Yn-j2J" id="wlT-L2-99Z"/>
+                        <outlet property="counterButtonMinus" destination="sP4-lr-xbu" id="BUp-PS-vGj"/>
                         <outlet property="counterButtonPlus" destination="IXm-1q-LJy" id="nn8-8Q-fKJ"/>
                         <outlet property="counterLabel" destination="8sM-gz-3oR" id="kdO-t1-11M"/>
+                        <outlet property="resetButton" destination="DJm-VC-YAZ" id="GOM-Gv-cmU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -49,7 +82,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
