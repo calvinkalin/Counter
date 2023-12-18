@@ -1,0 +1,42 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "8sM-gz-3oR.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"0\"; ObjectID = \"8sM-gz-3oR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "0"
+          }
+        }
+      }
+    },
+    "IXm-1q-LJy.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"+\"; ObjectID = \"IXm-1q-LJy\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "+"
+          }
+        }
+      }
+    },
+    "IXm-1q-LJy.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"IXm-1q-LJy\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
