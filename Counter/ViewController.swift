@@ -16,8 +16,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var changesHistory: UITextView!
     
     
-    
-    func updateHistory(_ message: String) {
+    private func getTime() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        return formatter.string(from: Date())
+    }
+    private func updateHistory(_ message: String) {
         changesHistory.text.append("\n\(message)")
     }
     
@@ -26,7 +30,7 @@ class ViewController: UIViewController {
         updateHistory("История изменений:")
         counterButtonPlus.layer.cornerRadius = 10.0
         counterButtonMinus.layer.cornerRadius = 10.0
-
+        
     }
     private var counter: Int = 0
     @IBAction func buttonPlusDidTap(_ sender: Any) {
@@ -49,12 +53,7 @@ class ViewController: UIViewController {
         counter = 0
         counterLabel.text = String(counter)
         updateHistory("\(getTime()): значение сброшено")
-
-    }
-    func getTime() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-        return formatter.string(from: Date())
+        
     }
 }
 
